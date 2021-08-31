@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zxx">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Organi ">
+<meta name="keywords" content="Organi,">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Ogani </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&amp;display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{%static 'css/font-awesome.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{%static 'css/elegant-icons.css' %}" type="text/css">
+<link rel="stylesheet" href="{%static 'css/nice-select.css' %}" type="text/css">
+<link rel="stylesheet" href="{%static 'css/jquery-ui.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{%static 'css/owl.carousel.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{%static 'css/slicknav.min.css' %}" type="text/css">
+<link rel="stylesheet" href="{%static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+
+<div id="preloder">
+<div class="loader"></div>
+</div>
+
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+<div class="humberger__menu__logo">
+<a href="#"><img src="{%static 'img/logo.png' %}" alt=""></a>
+</div>
+<div class="humberger__menu__cart">
+<ul>
+<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+<li><a href="{%url 'shoping-cart' %}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+</ul>
+<div class="header__cart__price">user: <span><a href="{%url 'profile1' %}">{{ request.user.username}}</a></span></div>
+</div>
+<div class="humberger__menu__widget">
+<div class="header__top__right__language">
+<img src="{%static 'img/language.png' %}" alt="">
+<div>English</div>
+<span class="arrow_carrot-down"></span>
+<ul>
+<li><a href="#">Spanis</a></li>
+<li><a href="#">English</a></li>
+</ul>
+</div>
+<div class="header__top__right__auth">
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}"><i class="fa fa-user"></i> logout</a>
+ {% else %}
+ <a href="{% url 'login' %}"><i class="fa fa-user"></i> login</a>
+{% endif %}
+</div>
+</div>
+<nav class="humberger__menu__nav mobile-menu">
+<ul>
+<li class="active"><a href="{%url 'index' %}">Home</a></li>
+<li><a href="{%url 'shop-grid' %}">Shop</a></li>
+<li><a href="#">Pages</a>
+<ul class="header__menu__dropdown">
+<li><a href="{%url 'shop-details' %}">Shop Details</a></li>
+<li><a href="{%url 'shoping-cart' %}">Shoping Cart</a></li>
+<li><a href="{%url 'checkout' %}">Check Out</a></li>
+<li><a href="{%url 'blog-details' %}">Blog Details</a></li>
+</ul>
+</li>
+<li><a href="{%url 'blog' %}">Blog</a></li>
+<li><a href="{%url 'contact' %}">Contact</a></li>
+<li><a href="{%url 'profile1' %}">profile</a></li>
+<li><a href="#">sell</a>
+<ul class="header__menu__dropdown">
+<li><a href="{%url 'register' %}">register</a></li>
+<li><a href="{%url 'profile1' %}">view earning</a></li>
+</ul>
+</ul>
+</nav>
+<div id="mobile-menu-wrap"></div>
+<div class="header__top__right__social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-linkedin"></i></a>
+<a href="#"><i class="fa fa-pinterest-p"></i></a>
+</div>
+<div class="humberger__menu__contact">
+<ul>
+</ul>
+</div>
+</div>
+
+
+<header class="header">
+<div class="header__top">
+<div class="container">
+<div class="row">
+<div class="col-lg-6">
+<div class="header__top__left">
+<ul>
+</ul>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="header__top__right">
+<div class="header__top__right__social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-linkedin"></i></a>
+<a href="#"><i class="fa fa-pinterest-p"></i></a>
+</div>
+<div class="header__top__right__language">
+<img src="{%static 'img/language.png' %}" alt="">
+<div>English</div>
+<span class="arrow_carrot-down"></span>
+<ul>
+<li><a href="#">Spanis</a></li>
+<li><a href="#">English</a></li>
+</ul>
+</div>
+<div class="header__top__right__auth">
+{% if user.is_authenticated %}
+<a href="{% url 'logout' %}"><i class="fa fa-user"></i> logout</a>
+ {% else %}
+ <a href="{% url 'login' %}"><i class="fa fa-user"></i> login</a>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+<div class="header__logo">
+<a href="{%url 'index' %}"><img src="{%static 'img/logo.png' %}" alt=""></a>
+</div>
+</div>
+<div class="col-lg-6">
+<nav class="header__menu">
+<ul>
+<li><a href="{%url 'index' %}">Home</a></li>
+<li><a href="{%url 'shop-grid' %}">Shop</a></li>
+<li><a href="#">Pages</a>
+<ul class="header__menu__dropdown">
+<li><a href="{%url 'shoping-cart' %}">Shoping Cart</a></li>
+<li><a href="{%url 'checkout' %}">Check Out</a></li>
+<li><a href="{%url 'blog-details' %}">Blog Details</a></li>
+</ul>
+</li>
+<li class="active"><a href="{%url 'blog' %}">Blog</a></li>
+<li><a href="{%url 'contact' %}">Contact</a></li>
+<li><a href="{%url 'profile1' %}">profile</a></li>
+<li><a href="#">sell</a>
+<ul class="header__menu__dropdown">
+<li><a href="{%url 'register' %}">register</a></li>
+<li><a href="{%url 'profile1' %}">view earning</a></li>
+</ul>
+</ul>
+</nav>
+</div>
+<div class="col-lg-3">
+<div class="header__cart">
+<ul>
+<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+<li><a href="{%url 'shoping-cart' %}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+</ul>
+<div class="header__cart__price">user: <span><a href="{%url 'profile1' %}">{{ request.user.username}}</a></span></div>
+</div>
+</div>
+</div>
+<div class="humberger__open">
+<i class="fa fa-bars"></i>
+</div>
+</div>
+</header>
+
+
+<section class="hero hero-normal">
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+<div class="hero__categories">
+<div class="hero__categories__all">
+<i class="fa fa-bars"></i>
+<span>All departments</span>
+</div>
+<ul>
+<li><a href="{% url 'search1' data='capsicum' %}">Capsicum</a></li>
+<li><a href="{% url 'search1' data='carrot' %}">Carrots</a></li>
+<li><a href="{% url 'search1' data='onion' %}">Onions</a></li>
+<li><a href="{% url 'search1' data='tomato' %}">Tomato</a></li>
+<li><a href="{% url 'search1' data='garlic' %}">Garlic</a></li>
+<li><a href="{% url 'search1' data='corn' %}">corn</a></li>
+<li><a href="{% url 'search1' data='orange' %}">Orange</a></li>
+<li><a href="{% url 'search1' data='apple' %}">Apple</a></li>
+<li><a href="{% url 'search1' data='mango' %}">Mango</a></li>
+<li><a href="{% url 'search1' data='grapes' %}">Grapes</a></li>
+<li><a href="{% url 'search1' data='watermelon' %}">Watermelon</a></li>
+<li><a href="{% url 'search1' data='banana' %}">Banana</a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-9">
+<div class="hero__search">
+<div class="hero__search__form">
+<form action="#">
+<div class="hero__search__categories">
+All Categories
+<span class="arrow_carrot-down"></span>
+</div>
+<input type="text" placeholder="What do yo u need?">
+<button type="submit" class="site-btn">SEARCH</button>
+</form>
+</div>
+<div class="hero__search__phone">
+<div class="hero__search__phone__icon">
+<i class="fa fa-phone"></i>
+</div>
+<div class="hero__search__phone__text">
+<h5>+65 11.188.888</h5>
+<span>support 24/7 time</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="blog-details-hero set-bg" data-setbg="{%static 'img/blog/details/details-hero.jpg' %}">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="blog__details__hero__text">
+<h2>NEWS-BLOG</h2>
+<ul>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="blog-details spad">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-5 order-md-1 order-2">
+<div class="blog__sidebar">
+<div class="blog__sidebar__search">
+<form action="#">
+<input type="text" placeholder="Search...">
+<button type="submit"><span class="icon_search"></span></button>
+</form>
+</div>
+<div class="blog__sidebar__item">
+<h4>Categories</h4>
+<ul>
+<li><a href="{%url 'blog' %}">All</a></li>
+<li><a href="{%url 'blog' %}">cooking hacks (20)</a></li>
+<li><a href="{%url 'blog' %}">Food (5)</a></li>
+<li><a href="{%url 'blog' %}">Life Style (9)</a></li>
+</ul>
+</div>
+<div class="blog__sidebar__item">
+<h4>Recent News</h4>
+<div class="blog__sidebar__recent">
+<a href="#" class="blog__sidebar__recent__item">
+<div class="blog__sidebar__recent__item__pic">
+<img src="{%static 'img/blog/sidebar/sr-1.jpg' %}" alt="">
+</div>
+<div class="blog__sidebar__recent__item__text">
+<h6>09 Kinds Of Vegetables<br /> Protect The Liver</h6>
+<span>MAR 05, 2019</span>
+</div>
+</a>
+<a href="#" class="blog__sidebar__recent__item">
+<div class="blog__sidebar__recent__item__pic">
+<img src="{%static 'img/blog/sidebar/sr-2.jpg' %}" alt="">
+</div>
+<div class="blog__sidebar__recent__item__text">
+<h6>Tips You To Balance<br /> Nutrition Meal Day</h6>
+<span>MAR 05, 2019</span>
+</div>
+</a>
+<a href="#" class="blog__sidebar__recent__item">
+<div class="blog__sidebar__recent__item__pic">
+<img src="{%static 'img/blog/sidebar/sr-3.jpg' %}" alt="">
+</div>
+<div class="blog__sidebar__recent__item__text">
+<h6>4 Principles Help You Lose <br />Weight With Vegetables</h6>
+<span>MAR 05, 2019</span>
+</div>
+</a>
+</div>
+</div>
+<div class="blog__sidebar__item">
+<h4>Search By</h4>
+<div class="blog__sidebar__item__tags">
+<a href="{%url 'blog' %}">Beauty</a>
+<a href="{%url 'blog' %}">Vegetables</a>
+<a href="{%url 'blog' %}">Fruit</a>
+<a href="{%url 'blog' %}">Healthy Food</a>
+<a href="{%url 'blog' %}">Lifestyle</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-8 col-md-7 order-md-1 order-1">
+<div class="blog__details__text">
+<img src="{%static 'img/blog/details/vegetables.jpg' %}" alt="">
+<p>Vegetables are parts of plants that are consumed by humans as food.
+ The term vegetable usually refers to the edible portions of certain herbaceous plants — roots, stems, leaves, flowers, fruit, or seeds.
+ These plant parts are either eaten fresh or prepared in a number of ways, usually as a savory, rather than sweet, dish.
+ Originally, vegetables were collected from the wild by hunter-gatherers and entered cultivation in several parts of the world, probably during the period 10,000 BC to 7,000 BC, when a new agricultural way of life developed.<br>
+
+ <br>Virtually all of the more important vegetables were cultivated among the ancient civilizations of either the Old or the New World and have long been noted for their nutritional importance.
+ As the birth of modern human civilizations, vegetables were identified as the sourced of great medicinal and nutritional power.
+ Vegetables are usually classified on the basis of the part of the plant that is used for food.
+ The root vegetables include beets, carrots, radishes, sweet potatoes, and turnips.
+ Stem vegetables include asparagus and kohlrabi.
+ Among the edible tubers, or underground stems, are potatoes.
+ The leaf and leafstalk vegetables include brussels sprouts, cabbage, celery, lettuce, rhubarb, and spinach.
+ Among the bulb vegetables are garlic, leeks, and onions.
+ The head, or flower, vegetables include artichokes, broccoli, and cauliflower.<br>
+
+ <br>The fruits commonly considered vegetables by virtue of their use include cucumbers, eggplant, okra, corn, squash, peppers, and tomatoes.
+ Seed vegetables are usually legumes, such as peas and beans.
+ Mushrooms, though belonging to the biological kingdom fungi, are also commonly considered vegetables.
+ Vegetables have vitamins A, B, C, D, minerals and carbohydrates.</p>
+</div>
+<div class="blog__details__content">
+<div class="row">
+<div class="col-lg-6">
+<div class="blog__details__author">
+<div class="blog__details__author__pic">
+<img src="{%static 'img/blog/details/details-author.jpg' %}" alt="">
+</div>
+<div class="blog__details__author__text">
+<h6>Michael Scofield</h6>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="blog__details__widget">
+<ul>
+<li><span>Categories:</span> Food</li>
+<li><span>Tags:</span> All, Trending, Cooking, Healthy Food, Life Style</li>
+</ul>
+<div class="blog__details__social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-google-plus"></i></a>
+<a href="#"><i class="fa fa-linkedin"></i></a>
+<a href="#"><i class="fa fa-envelope"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="from-blog spad">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="section-title from-blog__title">
+<h2>From The Blog</h2>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-6">
+<div class="blog__item">
+<div class="blog__item__pic">
+ <img src="{%static 'img/blog/immunity.jfif' %}" alt="" >
+</div>
+<div class="blog__item__text">
+<ul>
+<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+<li><i class="fa fa-comment-o"></i> 5</li>
+</ul>
+<h5><a href="{%url 'blog' %} ">15 Foods That Boost the Immune System</a></h5>
+<!--<p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>-->
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6">
+<div class="blog__item">
+<div class="blog__item__pic">
+<img src="{%static 'img/blog/cooking.jfif' %}" alt="">
+</div>
+<div class="blog__item__text">
+<ul>
+<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+<li><i class="fa fa-comment-o"></i> 5</li>
+</ul>
+<h5><a href="{%url 'blog' %}">Cooking tips make cooking simple</a></h5>
+<!-- <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>-->
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6">
+<div class="blog__item">
+<div class="blog__item__pic">
+<img src="{%static 'img/blog/facts.jfif' %}" alt="">
+</div>
+<div class="blog__item__text">
+<ul>
+<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+<li><i class="fa fa-comment-o"></i> 5</li>
+</ul>
+<h5><a href="{%url 'blog' %}">Surprising Facts About Fruit And Veggies</a></h5>
+<!--<p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>-->
+</div>
+</div>
+</div>
+</div>
+<a href="{%url 'blog' %}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+</div>
+</section>
+
+
+<footer class="footer spad">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-6 col-sm-6">
+<div class="footer__about">
+<div class="footer__about__logo">
+<a href="{%url 'index' %}"><img src="{%static 'img/logo.png' %}" alt=""></a>
+</div>
+<ul>
+<li>Address: 60-49 Road wayand  kerala</li>
+<li>Phone: +65 11.188.888</li>
+<li>Email: <a href="https://preview.colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b3dbd6dfdfdcf3d0dcdfdcc1dfdad19dd0dcde">[email&#160;protected]</a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+<div class="footer__widget">
+<h6>Useful Links</h6>
+<ul>
+<li><a href="#">About Us</a></li>
+<li><a href="#">About Our Shop</a></li>
+<li><a href="#">Secure Shopping</a></li>
+<li><a href="#">Delivery infomation</a></li>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Our Sitemap</a></li>
+</ul>
+<ul>
+<li><a href="#">Who We Are</a></li>
+<li><a href="#">Our Services</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Innovation</a></li>
+<li><a href="#">Testimonials</a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-12">
+<div class="footer__widget">
+<h6>Join Our Newsletter Now</h6>
+<p>Get E-mail updates about our latest shop and special offers.</p>
+<form action="#">
+<input type="text" placeholder="Enter your mail">
+<button type="submit" class="site-btn">Subscribe</button>
+</form>
+<div class="footer__widget__social">
+<a href="#"><i class="fa fa-facebook"></i></a>
+<a href="#"><i class="fa fa-instagram"></i></a>
+<a href="#"><i class="fa fa-twitter"></i></a>
+<a href="#"><i class="fa fa-pinterest"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<div class="footer__copyright">
+<div class="footer__copyright__text"><p>
+Copyright &copy;<script data-cfasync="false" src="{%static '../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | <i class="fa fa-heart" aria-hidden="true"></i>
+</p></div>
+<div class="footer__copyright__payment"><img src="{%static 'img/payment-item.png' %}" alt=""></div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+
+<script src="{%static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{%static 'js/bootstrap.min.js' %}"></script>
+<script src="{%static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{%static 'js/jquery-ui.min.js' %}"></script>
+<script src="{%static 'js/jquery.slicknav.js' %}"></script>
+<script src="{%static 'js/mixitup.min.js' %}"></script>
+<script src="{%static 'js/owl.carousel.min.js' %}"></script>
+<script src="{%static 'js/main.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/ogani/blog_details.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Feb 2021 05:41:57 GMT -->
+</html>
